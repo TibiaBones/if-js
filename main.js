@@ -44,3 +44,60 @@ for (let i = 0; i < part10.length; i++) {
         console.log('10', value);
     }
 }
+
+// lesson 3
+
+function palindrome(str) {
+    str = str.toLowerCase().replace(/\s/g, '').split(',').join('');
+    return str === str.split("").reverse().join("");
+}
+
+console.log('1', palindrome('Тринитраплазмаполиуритан'));
+console.log('1', palindrome('Утроба, к аборту'));
+
+
+function checkMin(a, b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+
+function checkMinSecVer(a, b) {
+    return a < b ? a : b;
+}
+
+
+function checkMax(a, y) {
+    if (a > y) {
+        return a;
+    } else {
+        return y;
+    }
+}
+
+function checkMaxSecVer(a, y) {
+    return a > y ? a : y;
+}
+
+console.log('2.1', checkMin(2, -38));
+console.log('2.2', checkMax(56, 7));
+console.log('2.3', checkMinSecVer(2, 87));
+console.log('2.3', checkMaxSecVer(65, 8));
+
+
+function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+const arr = [];
+for (let i = 0; i < 10; i++) {
+    arr[i] = getRandom(0, 101);
+}
+arr.length = 10
+for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].toString().replace('0', 'zero');
+}
+
+console.log('3', arr);
