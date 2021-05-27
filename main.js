@@ -161,3 +161,70 @@ for (let i = 0; i < colors.length; i++) {
 for (let i = 0; i < colors.length; i++) {
     colors[i].addEventListener('click', colorChange3());
 }
+
+//lesson 5
+
+let date = '2020-11-26';
+date = date.split('-').reverse().join(".");
+console.log(date);
+
+
+const data = [
+    {
+        country: 'Russia',
+        city: 'Saint Petersburg',
+        hotel: 'Hotel Leopold',
+    },
+    {
+        country: 'Spain',
+        city: 'Santa Cruz de Tenerife',
+        hotel: 'Apartment Sunshine',
+    },
+    {
+        country: 'Slowakia',
+        city: 'Vysokie Tatry',
+        hotel: 'Villa Kunerad',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hostel Friendship',
+    },
+    {
+        country: 'Indonesia',
+        city: 'Bali',
+        hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+        country: 'Netherlands',
+        city: 'Rotterdam',
+        hotel: 'King Kong Hostel',
+    },
+    {
+        country: 'Marocco',
+        city: 'Ourika',
+        hotel: 'Rokoko Hotel',
+    },
+    {
+        country: 'Germany',
+        city: 'Berlin',
+        hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+];
+
+function gettingStr(str){
+let arr = data;
+return arr.filter(function (value){
+    return value.country.includes(str) || value.city.includes(str) || value.hotel.includes(str);
+})
+    .map(function (value){
+        return value.country + ', ' + value.city + ', ' + value.hotel
+    })
+}
+
+console.log(gettingStr('Marocco'))
+
+
+
+
+
