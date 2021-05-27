@@ -97,7 +97,7 @@ for (let i = 0; i < 10; i++) {
 }
 arr.length = 10
 for (let i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].toString().replace('0', 'zero');
+    arr[i] = arr[i].toString().split('0').join('zero');
 }
 
 console.log('3', arr);
