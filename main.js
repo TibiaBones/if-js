@@ -101,38 +101,3 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log('3', arr);
-
-
-// lesson 4
-
-const sum = (a) => {
-    return (b) => {
-        return a + b;
-    }
-}
-
-console.log(sum(5)(2));
-
-const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
-
-const changingClass = document.getElementsByClassName('text');
-
-let c = 0;
-
-let colorCh = function colorChange() {
-    return function () {
-        this.style.color = colors[c];
-        c++;
-        if (c === colors.length) {
-            c = 0;
-        }
-    }
-}
-
-for (let i = 0; i < changingClass.length; i++) {
-    changingClass[i].addEventListener('click', colorCh());
-}
-
-
-
-
