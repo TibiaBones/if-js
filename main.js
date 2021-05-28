@@ -97,7 +97,7 @@ for (let i = 0; i < 10; i++) {
 }
 arr.length = 10
 for (let i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].toString().replace('0', 'zero');
+    arr[i] = arr[i].toString().split('0').join('zero');
 }
 
 console.log('3', arr);
@@ -115,17 +115,13 @@ console.log(sum(5)(2));
 
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-const t1 = document.getElementsByClassName('text1');
-const t2 = document.getElementsByClassName('Text2');
-const t3 = document.getElementsByClassName('Text3');
+const changingClass = document.getElementsByClassName('text');
+
 let c = 0;
-let d = 0;
-let e = 0;
 
-let colorCh1 = function colorChange1() {
-
+let colorCh = function colorChange() {
     return function () {
-        t1.style.color = colors[c];
+        this.style.color = colors[c];
         c++;
         if (c === colors.length) {
             c = 0;
@@ -133,33 +129,8 @@ let colorCh1 = function colorChange1() {
     }
 }
 
-function colorChange2() {
-
-    t2.style.color = colors[d];
-    d++;
-    if (d === colors.length) {
-        d = 0;
-    }
-}
-
-function colorChange3() {
-    t3.style.color = colors[e];
-    e++;
-    if (e === colors.length) {
-        e = 0;
-    }
-}
-
-for (let i = 0; i < colors.length; i++) {
-    colors[i].addEventListener('click', colorCh1());
-}
-
-for (let i = 0; i < colors.length; i++) {
-    colors[i].addEventListener('click', colorChange2());
-}
-
-for (let i = 0; i < colors.length; i++) {
-    colors[i].addEventListener('click', colorChange3());
+for (let i = 0; i < changingClass.length; i++) {
+    changingClass[i].addEventListener('click', colorCh());
 }
 
 //lesson 5
