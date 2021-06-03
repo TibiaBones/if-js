@@ -113,25 +113,52 @@ const sum = (a) => {
 
 console.log(sum(5)(2));
 
+
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-const changingClass = document.getElementsByClassName('text');
+const changingClass1 = document.getElementById('text1');
+const changingClass2 = document.getElementById('text2');
+const changingClass3 = document.getElementById('text3');
 
-let c = 0;
-
-let colorCh = function colorChange() {
-    return function () {
-        this.style.color = colors[c];
+const colorCh = () => {
+    let c = 0;
+    return function (event) {
+        event.target.style.color = colors[c];
         c++;
-        if (c === colors.length) {
+        if (c >= colors.length) {
             c = 0;
         }
     }
-}
+};
 
-for (let i = 0; i < changingClass.length; i++) {
-    changingClass[i].addEventListener('click', colorCh());
+for (let i = 0; i < changingClass1.length; i++) {
+    changingClass1[i].addEventListener('click', colorCh());
 }
+for (let i = 0; i < changingClass2.length; i++) {
+    changingClass2[i].addEventListener('click', colorCh());
+}
+for (let i = 0; i < changingClass3.length; i++) {
+    changingClass3[i].addEventListener('click', colorCh());
+}
+// const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+//
+// const changingClass = document.getElementsByClassName('text');
+//
+// let c = 0;
+//
+// let colorCh = function colorChange() {
+//     return function () {
+//         this.style.color = colors[c];
+//         c++;
+//         if (c === colors.length) {
+//             c = 0;
+//         }
+//     }
+// }
+//
+// for (let i = 0; i < changingClass.length; i++) {
+//     changingClass[i].addEventListener('click', colorCh());
+// }
 
 
 
