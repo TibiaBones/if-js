@@ -194,8 +194,3 @@ return arr.filter(function (value){
 }
 
 console.log(gettingStr('Marocco'))
-
-
-
-
-
