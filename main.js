@@ -103,42 +103,33 @@ for (let i = 0; i < arr.length; i++) {
 console.log('3', arr);
 
 
-// lesson 4
-
-const sum = (a) => {
-    return (b) => {
-        return a + b;
-    }
-}
-
-console.log(sum(5)(2));
-
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
-const changingClass = document.getElementsByClassName('text');
+const changingClass1 = document.getElementById('text1');
+const changingClass2 = document.getElementById('text2');
+const changingClass3 = document.getElementById('text3');
+console.log(changingClass1);
 
-let c = 0;
-
-let colorCh = function colorChange() {
-    return function () {
-        this.style.color = colors[c];
+const colorCh = () => {
+    let c = 0;
+    return function (event) {
+        event.target.style.color = colors[c];
         c++;
-        if (c === colors.length) {
+        if (c >= colors.length) {
             c = 0;
         }
     }
-}
+};
 
-for (let i = 0; i < changingClass.length; i++) {
-    changingClass[i].addEventListener('click', colorCh());
-}
+changingClass1.addEventListener('click', colorCh());
+changingClass2.addEventListener('click', colorCh());
+changingClass3.addEventListener('click', colorCh());
 
 //lesson 5
 
 let date = '2020-11-26';
 date = date.split('-').reverse().join(".");
 console.log(date);
-
 
 const data = [
     {
