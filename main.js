@@ -383,9 +383,3 @@ let countrySearch = hotels.reduce((accum, cValue) => {
 console.log(countrySearch);
 
 
-// let myCar = new Object();
-// myCar.make = "Ford";
-// myCar.model = "Mustang";
-// myCar.year = 1969;
-
-
