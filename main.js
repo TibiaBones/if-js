@@ -102,6 +102,7 @@ for (let i = 0; i < arr.length; i++) {
 
 console.log('3', arr);
 
+// lesson 4
 
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 
@@ -121,9 +122,15 @@ const colorCh = () => {
     }
 };
 
+
 changingClass1.addEventListener('click', colorCh());
+
+
 changingClass2.addEventListener('click', colorCh());
+
+
 changingClass3.addEventListener('click', colorCh());
+
 
 //lesson 5
 
@@ -383,3 +390,62 @@ let countrySearch = hotels.reduce((accum, cValue) => {
 console.log(countrySearch);
 
 
+// lesson 7
+
+const obj1 = {
+    a: 'a',
+    b: {
+        a: 'a',
+        b: 'b',
+        c: {
+            a: 1,
+        },
+    },
+};
+const obj2 = {
+    b: {
+        c: {
+            a: 1,
+        },
+        b: 'b',
+        a: 'a',
+    },
+    a: 'a',
+};
+const obj3 = {
+    a: {
+        c: {
+            a: 'a',
+        },
+        b: 'b',
+        a: 'a',
+    },
+    b: 'b',
+};
+
+
+function deepEqual(object1, object2) {
+
+    const box1 = Object.getOwnPropertyNames(object1);
+    const box2 = Object.getOwnPropertyNames(object2);
+
+    if (box1.length !== box2.length) {
+        return false;
+    }
+
+    for (const prop of box1) {
+        if (typeof (box1[prop]) === 'object') {
+            if (!deepEqual(box1[prop], box2[prop])) {
+                return false;
+            }
+        }
+
+        let result = (object1[prop]===object2[prop]);
+
+        return result;
+    }
+}
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
+console.log(deepEqual(obj2, obj3));
