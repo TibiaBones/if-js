@@ -492,7 +492,7 @@ class User {
     get fullName() {
         return `${this.firstName} ${this.lastName}`;
     };
-};
+}
 
 class Student extends User {
     constructor(admissionYear, courseName, firstName, lastName) {
@@ -504,9 +504,9 @@ class Student extends User {
     get course(){
         return currentYear - this.admissionYear;
     }
-};
+}
 
-const data2 = studentsData.map((c) => new Student(...Object.values(c)));
+const data2 = studentsData.map((a) => new Student(...Object.values(a)));
 
 class  Students{
     constructor(students){
@@ -515,11 +515,20 @@ class  Students{
 
     getInfo(){
         const sorted = this.students.sort((a, b) => a.course - b.course);
-        return sorted.map((a) => `${a.fullName} - ${a.courseName}, ${a.course} курс`)
-        // разобраться почему вместо course приходит NaN
-    }
-};
+        return sorted.map((a) => `${a.fullName} - ${a.courseName}, ${a.course} курс`);
+
+    };
+}
 
 const students = new Students(data2);
+
+console.log(students.course);
 console.log(students.getInfo());
+console.log(data2);
+
+
+
+
+
+
 
