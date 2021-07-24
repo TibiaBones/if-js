@@ -495,7 +495,7 @@ class User {
 }
 
 class Student extends User {
-    constructor(admissionYear, courseName, firstName, lastName) {
+    constructor(firstName, lastName, admissionYear, courseName) {
         super(firstName, lastName);
         this.admissionYear = admissionYear;
         this.courseName = courseName;
@@ -516,7 +516,6 @@ class  Students{
     getInfo(){
         const sorted = this.students.sort((a, b) => a.course - b.course);
         return sorted.map((a) => `${a.fullName} - ${a.courseName}, ${a.course} курс`);
-
     };
 }
 
