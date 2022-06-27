@@ -11,24 +11,40 @@
 <body>
 
 <style>
-
-    #text1 {
-        color: black;
+    .container{
+        margin: 30% auto 0;
+        padding: 10px 0;
+        max-width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        border: 10px solid #afafaf;
+        border-radius: 10px;
+        background-color: #c1ebd7;
     }
 
-    #text2 {
-        color: black;
+    .text{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+        width: 90%;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        border-radius: 3px;
     }
 
-    #text3 {
-        color: black;
-    }
+
 
 </style>
-
-<p id="text1">Text 1</p>
-<p id="text2">Text 2</p>
-<p id="text3">Text 3</p>
+<div class="container">
+<p class="text" id="text1" onclick="onClick(this)">Text 1</p>
+<p class="text" id="text2" onclick="onClick(this)">Text 2</p>
+<p class="text" id="text3" onclick="onClick(this)">Text 3</p>
+</div>
 
 </body>
 
