@@ -45,6 +45,7 @@
 //     }
 // }
 //
+
 // // lesson 3
 //
 // function palindrome(str) {
@@ -102,6 +103,7 @@
 //
 // console.log('3', arr);
 //
+
 // // lesson 4
 //
 // const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
@@ -122,12 +124,9 @@
 //     }
 // };
 //
-//
 // changingClass1.addEventListener('click', colorCh());
 //
-//
 // changingClass2.addEventListener('click', colorCh());
-//
 //
 // changingClass3.addEventListener('click', colorCh());
 //
@@ -193,6 +192,7 @@
 //
 // console.log(gettingStr('Marocco'))
 //
+
 // //lesson 5
 //
 // function palindromeArr(str) {
@@ -451,79 +451,114 @@
 // console.log(deepEqual(obj2, obj3));
 //
 
+
 //lesson 8
 
-const currentYear = new Date().getFullYear();
+
+// const currentYear = new Date().getFullYear();
+
+// const studentsData = [
+//     {
+//         firstName: 'Василий',
+//         lastName: 'Петров',
+//         admissionYear: 2019,
+//         courseName: 'Java',
+//     },
+//     {
+//         firstName: 'Иван',
+//         lastName: 'Иванов',
+//         admissionYear: 2018,
+//         courseName: 'JavaScript',
+//     },
+//     {
+//         firstName: 'Александр',
+//         lastName: 'Федоров',
+//         admissionYear: 2017,
+//         courseName: 'Python',
+//     },
+//     {
+//         firstName: 'Николай',
+//         lastName: 'Петров',
+//         admissionYear: 2019,
+//         courseName: 'Android',
+//     }
+// ];
+
+// class User {
+//     constructor(firstName, lastName) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+//     };
+
+//     get fullName() {
+//         return `${this.firstName} ${this.lastName}`;
+//     };
+// }
+
+// class Student extends User {
+//     constructor(firstName, lastName, admissionYear, courseName) {
+//         super(firstName, lastName);
+//         this.admissionYear = admissionYear;
+//         this.courseName = courseName;
+//     };
+
+//     get course(){
+//         return currentYear - this.admissionYear;
+//     }
+// }
+
+// const data2 = studentsData.map((a) => new Student(...Object.values(a)));
+
+// class  Students{
+//     constructor(students){
+//         this.students = students;
+//     };
+
+//     getInfo(){
+//         const sorted = this.students.sort((a, b) => a.course - b.course);
+//         return sorted.map((a) => `${a.fullName} - ${a.courseName}, ${a.course} курс`);
+//     };
+// }
+
+// const students = new Students(data2);
+
+// console.log(students.course);
+// console.log(students.getInfo());
+// console.log(data2);
 
 
-const studentsData = [
-    {
-        firstName: 'Василий',
-        lastName: 'Петров',
-        admissionYear: 2019,
-        courseName: 'Java',
-    },
-    {
-        firstName: 'Иван',
-        lastName: 'Иванов',
-        admissionYear: 2018,
-        courseName: 'JavaScript',
-    },
-    {
-        firstName: 'Александр',
-        lastName: 'Федоров',
-        admissionYear: 2017,
-        courseName: 'Python',
-    },
-    {
-        firstName: 'Николай',
-        lastName: 'Петров',
-        admissionYear: 2019,
-        courseName: 'Android',
+//lesson 9
+
+const createColor = () => {
+    return {
+        data: ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'],
+        index: 0,
+        [Symbol.iterator]() {
+            return this;
+        },
+        next() {
+            if (this.index >= this.data.length) {
+                this.index = 0
+            }
+            return {
+                done: false,
+                value: this.data[this.index++]
+            }
+        }
     }
-];
-
-class User {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    };
-
-    get fullName() {
-        return `${this.firstName} ${this.lastName}`;
-    };
 }
 
-class Student extends User {
-    constructor(firstName, lastName, admissionYear, courseName) {
-        super(firstName, lastName);
-        this.admissionYear = admissionYear;
-        this.courseName = courseName;
-    };
-
-    get course(){
-        return currentYear - this.admissionYear;
+const colorIterators = {};
+function onClick(element) {
+    let id = element.id;
+    if (colorIterators[id] === undefined) {
+        colorIterators[id] = createColor();
     }
+    element.style.backgroundColor = colorIterators[id].next().value;
 }
 
-const data2 = studentsData.map((a) => new Student(...Object.values(a)));
 
-class  Students{
-    constructor(students){
-        this.students = students;
-    };
 
-    getInfo(){
-        const sorted = this.students.sort((a, b) => a.course - b.course);
-        return sorted.map((a) => `${a.fullName} - ${a.courseName}, ${a.course} курс`);
-    };
-}
-
-const students = new Students(data2);
-
-console.log(students.course);
-console.log(students.getInfo());
-console.log(data2);
 
 
 
