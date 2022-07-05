@@ -354,12 +354,18 @@
     <section class="homesGuestsLoves-background" id="hgl_section">
         <span class="homesGuestsLoves-title" id="hgl_title"></span>
         <div class="hgl-img" id="hgl-img_container">
-            <svg class="hgl-arrow arrowRight">
-                <use href="#arrowRight" />
-            </svg>
-            <svg class="hgl-arrow arrowLeft">
-                <use href="#arrowRight" />
-            </svg>
+            <div class="switch" onclick="switchSlide(1)">
+                <svg class="hgl-arrow arrowRight" >
+                    <use href="#arrowRight" />
+                </svg> 
+            </div>
+            <div class="switch" onclick="switchSlide(-1)">
+                <svg class="hgl-arrow arrowLeft" >
+                    <use href="#arrowRight" />
+                </svg>
+            </div>
+
+
         </div>
     </section>
 

@@ -36,30 +36,30 @@ const data = [
         country: 'Germany',
         imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
     },
-    // {
-    //     name: 'Radisson Blu Hotel',
-    //     city: 'Kyiv',
-    //     country: 'Ukraine',
-    //     imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
-    // },
-    // {
-    //     name: 'Paradise Hotel',
-    //     city: 'Guadalupe',
-    //     country: 'Mexico',
-    //     imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
-    // },
-    // {
-    //     name: 'Hotel Grindewald',
-    //     city: 'Interlaken',
-    //     country: 'Switzerland',
-    //     imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
-    // },
-    // {
-    //     name: 'The Andaman Resort',
-    //     city: 'Port Dickson',
-    //     country: 'Malaysia',
-    //     imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
-    // },
+    {
+        name: 'Radisson Blu Hotel',
+        city: 'Kyiv',
+        country: 'Ukraine',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
+    },
+    {
+        name: 'Paradise Hotel',
+        city: 'Guadalupe',
+        country: 'Mexico',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
+    },
+    {
+        name: 'Hotel Grindewald',
+        city: 'Interlaken',
+        country: 'Switzerland',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
+    },
+    {
+        name: 'The Andaman Resort',
+        city: 'Port Dickson',
+        country: 'Malaysia',
+        imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
+    },
 ];
 
 const section = document.getElementById("hgl_section");
@@ -69,6 +69,7 @@ title.innerHTML = "Homes guests loves";
 
 const container = document.getElementById("hgl-img_container");
 
+// код из домашней работы lesson_10 без слайдера 
 data.forEach((element) => {
     container.innerHTML += `
     <div class="hgl-container-image">
@@ -78,9 +79,44 @@ data.forEach((element) => {
     </div>
 `});
 
+
 section.appendChild(container);
 
 
+//img slider 
+//lesson_10 со слайдером
+
+let slideIndex = 1;
+
+showSlides(slideIndex)
+
+function switchSlide(n) {
+    showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+    let slides = document.getElementsByClassName("hgl-container-image");
+    let switchButtons = document.getElementsByClassName("switch");
+
+    if (n > slides.length) {
+        slideIndex = 1
+    };
+
+    if (n < 1) {
+        slideIndex = slides.length
+    };
+
+    for (let slide of slides) {
+        slide.style.display = "none";
+
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex].style.display = "block";
+    slides[slideIndex + 1].style.display = "block";
+    slides[slideIndex + 2].style.display = "block";
+    console.log(slideIndex);
+}
 
 
 
