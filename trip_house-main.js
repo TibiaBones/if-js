@@ -69,7 +69,6 @@ title.innerHTML = "Homes guests loves";
 
 const container = document.getElementById("hgl-img_container");
 
-// код из домашней работы lesson_10 без слайдера 
 data.forEach((element) => {
     container.innerHTML += `
     <div class="hgl-container-image">
@@ -79,53 +78,51 @@ data.forEach((element) => {
     </div>
 `});
 
-
 section.appendChild(container);
 
+let slideIndex1 = 1;
+let slideIndex2 = 2;
+let slideIndex3 = 3;
+let slideIndex4 = 4;
 
-//img slider 
-//lesson_10 со слайдером
+showSlides();
 
-let slideIndex = 1;
+function switchSlideNext() {
+    slideIndex1 += 1;
+    slideIndex2 += 1;
+    slideIndex3 += 1;
+    slideIndex4 += 1;
 
-showSlides(slideIndex)
+    showSlides();
+};
+function switchSlidePrev() {
+    slideIndex1 += -1;
+    slideIndex2 += -1;
+    slideIndex3 += -1;
+    slideIndex4 += -1;
 
-function switchSlide(n) {
-    showSlides(slideIndex += n);
-}
+    showSlides();
+};
 
-function showSlides(n) {
+function showSlides() {
     let slides = document.getElementsByClassName("hgl-container-image");
-    let switchButtons = document.getElementsByClassName("switch");
 
-    if (n > slides.length) {
-        slideIndex = 1
-    };
-
-    if (n < 1) {
-        slideIndex = slides.length
-    };
+    if (slideIndex1 != 1) {
+        document.getElementById("prev").style.display = "block";
+    } else { document.getElementById("prev").style.display = "none" };
+    if (slideIndex4 == 8) {
+        document.getElementById("next").style.display = "none";
+    } else { document.getElementById("next").style.display = "block" };
 
     for (let slide of slides) {
         slide.style.display = "none";
-
     }
 
-    slides[slideIndex - 1].style.display = "block";
-    slides[slideIndex].style.display = "block";
-    slides[slideIndex + 1].style.display = "block";
-    slides[slideIndex + 2].style.display = "block";
-    console.log(slideIndex);
-}
-
-
-
-
-
-
-
-
-
+    slides[slideIndex1 - 1].style.display = "block";
+    slides[slideIndex2 - 1].style.display = "block";
+    slides[slideIndex3 - 1].style.display = "block";
+    slides[slideIndex4 - 1].style.display = "block";
+};
 
 
 
